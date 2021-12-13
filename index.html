@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de-at">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,5 +8,33 @@
 </head>
 <body>
     <h1>asuender.neu - Meine Seite</h1>
+    <p>Julians Wunschseite:</p>
+    <form>
+        <input type="text" id="vname" name="vname" placeholder="Vorname">
+        <input type="text" id="nname" name="nname" placeholder="Nachname" disabled>
+    </form>
+    
+    <script>
+        const names = {
+            "Noah": "Kurzmann",
+            "Andreas": "Sünder",
+            "Julian": "Doppelhofer",
+            "Niklas": "Kisser",
+            "Timmy": "Raschbacher"
+        };
+
+        const vname = document.getElementById("vname");
+        const nname = document.getElementById("nname");
+
+        vname.addEventListener("input", (event) => {
+            let text = vname.value;
+
+            for (const [key, value] of Object.entries(names)) {
+                if (key.includes(text)) {
+                    nname.value = value;
+                }
+            }
+        });
+    </script>
 </body>
 </html>
